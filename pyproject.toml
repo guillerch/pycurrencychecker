@@ -10,7 +10,7 @@ repository = "https://github.com/gcordovadatec/pycurrencychecker"
 keywords = ["currency", "exchange rates", "forex", "finance"]
 
 [tool.poetry.dependencies]
-python = ">=3.7.10"
+python = ">=3.8"
 requests = "^2.0"
 
 [tool.poetry.dev-dependencies]
