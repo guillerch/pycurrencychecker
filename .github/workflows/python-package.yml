@@ -27,8 +27,8 @@ jobs:
     - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python -m pip install setuptools build flake8 pytest pytest-cov
+        python -m pip install -e .
     - name: Lint con flake8
       run: |
         # Detener el build si hay errores de sintaxis de Python o nombres indefinidos
