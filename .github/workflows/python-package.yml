@@ -1,5 +1,5 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+# Este workflow instalará dependencias de Python, ejecutará pruebas y realizará linting con varias versiones de Python
+# Para más información, consulta: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
 name: Python package
 
@@ -16,25 +16,25 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7","3.8","3.9", "3.10", "3.11"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Configurar Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
+    - name: Lint con flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
+        # Detener el build si hay errores de sintaxis de Python o nombres indefinidos
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        # exit-zero trata todos los errores como advertencias. El editor de GitHub tiene 127 caracteres de ancho
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+    - name: Pruebas con pytest
       run: |
         pytest
