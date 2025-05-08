@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pycurrencychecker"
-version = "0.1.0"
+version = "1.0.0"
 description = "A library to fetch exchange rates between different currencies without requiring an API key."
 authors = ["GuillerCH <guillerc33@gmail.com>"]
 license = "MIT"
